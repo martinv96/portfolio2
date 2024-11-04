@@ -3,22 +3,51 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #f4f4f4;
   }
   
   .liste {
     float: left;
+    border-right: 2px solid #dddddd;
   }
   
   .liste a {
     display: block;
-    color: white;
+    color: #333333;
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .liste a:hover:not(.active) {
-    background-color: #111;
+    background-color: #e2e2e2;
+    color: #000000;
   }
   
+  .contact {
+    float: right;
+    border-left: 2px solid #dddddd;
+  }
+
+  .contact a {
+    display: block;
+    color: #333333;
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .contact a:hover:not(.active) {
+    background-color: #e2e2e2;
+    color: #000000;
+  }
+
+  .img {
+    width: 50px;
+  }
