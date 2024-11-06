@@ -1,14 +1,22 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Page d'accueil{% endblock %}
+{% block title %}Page d'accueil
+{% endblock %}
 
 {% block body %}
+	<link rel="stylesheet" href="{{ asset('styles/accueil.css') }}">
 
-<div>
-    <h1>Page d'accueil</h1>
+	<div>
+		<h1>Page d'accueil</h1>
 
-    
+		
+			<img src="{{ asset('img/logo.png') }}" alt="logo">
 
-    
-</div>
+            <p class="text">Pour acceder à votre profil, veuillez vous connecté.</p>
+
+            <p class="text">Pas encore inscrit ? <a class="link-signin" href="{{ path('app_inscription') }}">Inscrivez-vous !</a></p>
+		
+
+
+	</div>
 {% endblock %}

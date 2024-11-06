@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="assets/styles/nav.css">
 
 <ul class="nav">
-  <li class="liste"><a href="#">Accueil</a></li>
-  <li class="liste"><a href="#">Projets</a></li>
-  <li class="liste"><a href="#">A propos</a></li>
-  <li class="contact"><a href="#">Contact</a></li>
+  <li class="liste"><a href="{{ path('app_accueil')}}">Accueil</a></li>
+  <li class="liste"><a href="{{ path('app_inscription') }}">inscription</a></li>
+  <li class="liste"><a href="{{ path('app_connexion') }}">Connexion</a></li>
+  <li class="liste"><a href="{{ path('app_profil') }}">Profil</a></li>
+  <li class="contact"><a href="{{ path('app_logout')}}">Deconnexion</a></li>
 </ul>

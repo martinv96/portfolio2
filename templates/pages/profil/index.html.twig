@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Page d'accueil
+{% endblock %}
+
+{% block body %}
+	<link rel="stylesheet" href="{{ asset('styles/profil.css') }}">
+
+		<h1>Bienvenue sur votre profil</h1>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <p class="text">Voici les informations de votre compte :</p>
+
+    <ul class="ul">
+        <li class="li">Email : {{ user.email }}</li>
+        <li class="li">Pseudo : {{ user.pseudo }}</li>
+    </ul>
+
+{% endblock %}

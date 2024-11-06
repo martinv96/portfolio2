@@ -1,0 +1,17 @@
+img {
+    width: 10%;
+    position: relative;
+    left: 45%;
+    border: 10px solid black;
+}
+
+.text {
+    text-align: center;
+    color: white;
+}
+
+.link-signin {
+    text-decoration: none;
+    font-weight: bolder;
+    color: white;
+}

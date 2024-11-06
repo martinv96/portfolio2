@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('styles/user.css') }}">
+
+    <div>
+        <h1>Connexion</h1>
+
+        {{ form_start(loginForm) }}
+        <div class="form">
+            <div class="label">
+                {{ form_label(loginForm.email, 'Email') }}
+            </div>
+            <div class="widget">
+                {{ form_widget(loginForm.email, {'attr': {'placeholder': 'Entrez votre email'}}) }}
+            </div>
+
+            <div class="label">
+                {{ form_label(loginForm.password, 'Mot de passe') }}
+            </div>
+            <div class="widget">
+                {{ form_widget(loginForm.password, {'attr': {'placeholder': 'Entrez votre mot de passe'}}) }}
+            </div>
+
+            <div class="widget">
+                {{ form_widget(loginForm.envoyer, {'attr': {'class': 'connexion'}}) }}
+            </div>
+        </div>
+        {{ form_end(loginForm) }}
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        
+    </div>
+{% endblock %}

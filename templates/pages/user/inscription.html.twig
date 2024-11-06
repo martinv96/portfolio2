@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Page d'accueil
+{% endblock %}
+
+{% block body %}
+	<link rel="stylesheet" href="{{ asset('styles/user.css') }}">
+
+	<div>
+		<h1>Inscription</h1>
+
+
+		{{ form_start(inscriptionForm) }}
+		<div class="form">
+			<div class="label">
+				{{form_label(inscriptionForm.email) }}
+			</div>
+			<div class="widget">
+				{{ form_widget(inscriptionForm.email) }}
+			</div>
+
+			<div class="label">
+				{{form_label(inscriptionForm.pseudo) }}
+			</div>
+			<div class="widget">
+				{{ form_widget(inscriptionForm.pseudo) }}
+			</div>
+			<div class="label">
+				{{form_label(inscriptionForm.password) }}
+
+			</div>
+			<div class="widget">
+				{{ form_widget(inscriptionForm.password) }}
+			</div>
+		{{ form_end(inscriptionForm) }}
+		</div>
+
+
+
+		{% for label, messages in app.flashes %}
+        {# app.flashes est une fonction symfony qui renvoie tous les messages flash #}
+			{% for message in messages %}
+				<div class="alert">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endfor %}
+
+	</div>
+{% endblock %}
