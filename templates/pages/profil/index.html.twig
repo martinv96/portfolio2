@@ -1,12 +1,11 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Page d'accueil
-{% endblock %}
+{% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
-	<link rel="stylesheet" href="{{ asset('styles/profil.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/profil.css') }}">
 
-		<h1>Bienvenue sur votre profil</h1>
+    <h1>Bienvenue sur votre profil</h1>
 
     {% for label, messages in app.flashes %}
         {% for message in messages %}
@@ -21,6 +20,36 @@
     <ul class="ul">
         <li class="li">Email : {{ user.email }}</li>
         <li class="li">Pseudo : {{ user.pseudo }}</li>
+        
+        {% if user.avatar %}
+        <img src="{{ asset('avatar/' ~ user.avatar) }}" alt="Avatar">
+    {% else %}
+        <img src="{{ asset('images/default-avatar.jpg') }}" alt="Avatar par défaut">
+    {% endif %}
+
+    {% if user.description %}
+        <p>Description : {{ user.description }}</p>
+    {% else %}
+        <p>Description : Aucune description</p>
+    {% endif %}
+
+    {% if user.emploi %}
+        <p>Emploi : {{ user.emploi }}</p>
+    {% endif %}
+
+    {% if user.telephone %}
+        <p>Téléphone : {{ user.telephone }}</p>
+    {% endif %}
+
+    {% if user.siteURL %}
+        <p>Site web : <a href="{{ user.siteURL }}" target="_blank">{{ user.siteURL }}</a></p>
+    {% endif %}
+        
     </ul>
+
+   <div class="update">
+    <a href="{{ path('app_modifier_informations') }}">Modifier mes informations</a>
+    </div>
+  
 
 {% endblock %}

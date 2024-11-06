@@ -162,4 +162,9 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     public function eraseCredentials(): void {}
+
+    public function getDoctrine(): string
+    {
+        return 'Utilisateur';
+    }
 }

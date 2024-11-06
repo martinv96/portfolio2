@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('styles/user.css') }}">
+
+    <h1>Bienvenue sur votre profil</h1>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <h3 style="text-align:center; color: white; font-weight:bolder; font-family:Arial, Helvetica, sans-serif;">Mettre à jour votre profil</h3>
+
+   {{ form_start(formupdate) }}
+
+    <div class="formupdate">
+        <div class="label">
+            {{ form_label(formupdate.avatar, 'Avatar') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(formupdate.avatar) }}
+        </div>
+
+        <div class="label">
+            {{ form_label(formupdate.emploi, 'Emploi') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(formupdate.emploi) }}
+        </div>
+
+        <div class="label">
+            {{ form_label(formupdate.description, 'Description') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(formupdate.description) }}
+        </div>
+        
+        <div>
+            {{ form_widget(formupdate.envoyer, {'attr': {'class': 'bouton'}}) }}
+        </div>
+    </div>
+    
+   {{ form_end(formupdate) }}
+
+{% endblock %}
