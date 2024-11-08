@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.formcollection {
+    border: 1px solid rgb(238, 220, 220);
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    margin: auto;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 5px;
+    color: rgb(63, 94, 95);
+    font-size: large;
+}
+
+.widget {
+    display: flex;
+    padding-bottom: 5px;
+    flex-direction: column;
+    width: 58%;
+    margin: auto;
+}
+
+.bouton {
+    background-color: rgb(126, 126, 126);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    left: 19%;
+    display: flex;
+    flex-direction: row;
+}
+
+.alert {
+    margin-top: 10px;
+    color: red;
+    background-color:black;
+    width: fit-content;
+    text-align: center;
+    border-radius:3px;
+}
+
+.text {
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.boutonmodif {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    width: fit-content;
+    margin-left: 22px;
+}
+
+.boutonmodif a {
+    background-color: white;
+    border-radius: 3px;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+.ul {
+    width:fit-content;
+    margin: auto;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    padding: 25px 70px 25px 25px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.li {
+    list-style-type: none;
+    
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.modifier {
+    background-color: rgb(126, 126, 126);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btnajout {
+    display: inline-block;
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 2px 20px 20px 20px;
+    border-radius: 5px;
+    color: black;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.text2 {
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.ajouter {
+    background-color: bisque;
+    padding: 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.alert {
+    margin-top: 10px;
+    color: red;
+    background-color:black;
+    width: fit-content;
+    border-radius:3px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background-color: #fff;
+    width: fit-content;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.card-actions .modifier,
+.card-actions .supprimer {
+    background-color: rgb(126, 126, 126);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-actions .modifier:hover,
+.card-actions .supprimer:hover {
+    opacity: 0.8;
+}

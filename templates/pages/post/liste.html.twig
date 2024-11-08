@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Liste des Posts{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('styles/post.css') }}">
+
+    <h1>Mes Posts</h1>
+
+    <ul class="ul">
+        {% for post in posts %}
+            <li class="li">
+                <div class="card">
+                    <h3>{{ post.titre }}</h3>
+
+                    {% if post.image %}
+                        <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="Image de {{ post.titre }}" class="post-image">
+                    {% else %}
+                        <p>Pas d'image disponible</p>
+                    {% endif %}
+
+                    <div class="card-actions">
+                        <a href="{{ path('app_modifier_post', { id: post.id }) }}" class="modifier">Modifier</a>
+                        <a href="{{ path('app_supprimer_post', { id: post.id }) }}" class="supprimer">Supprimer</a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="btnajout">
+        <p class="text2">Ajouter un post</p>
+        <a href="{{ path('app_ajouter_post')}}" class="ajouter">Ajouter</a>
+    </div>
+{% endblock %}

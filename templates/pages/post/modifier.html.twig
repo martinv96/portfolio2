@@ -1,0 +1,56 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('styles/ajoutpost.css') }}">
+
+    <h1>Modifier votre post</h1>
+
+    {{ form_start(postForm) }}
+
+    <div class="formcollection">
+        <div class="label">
+            {{ form_label(postForm.titre, 'Titre') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(postForm.titre) }}
+        </div>
+
+        <div class="label">
+            {{ form_label(postForm.description, 'Description') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(postForm.description) }}
+        </div>
+
+        <div class="label">
+            {{ form_label(postForm.isPublic, 'Visibilité') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(postForm.isPublic) }}
+        </div>
+        <div class="label">
+            {{ form_label(postForm.image, 'Fichier') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(postForm.image) }}
+        </div>
+        
+        <div>
+            {{ form_widget(postForm.envoyer, {'label': 'Enregistrer modification', 'attr': {'class': 'modifbouton'}}) }}
+
+        </div>
+    </div>
+        {{ form_widget(postForm) }}
+    {{ form_end(postForm) }}
+  
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+{% endblock %}

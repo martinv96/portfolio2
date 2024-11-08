@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('styles/detailcollection.css') }}">
+
+
+<h1>Détails {{ collection.titre }}</h1>
+
+
+<div class="card">
+<p><strong>Description :</strong> {{ collection.description }}</p>
+<p><strong>Catégorie :</strong> {{ collection.categorie }}</p>
+
+<p><strong>Visibilité :</strong> 
+    {% if collection.isPublic %}
+        Public
+    {% else %}
+        Privé
+    {% endif %}
+</p>
+
+<h2>Posts associés</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <strong>{{ post.titre }}</strong><br>
+            {{ post.description }}<br>
+            <a href="{{ path('app_detail_post', {'id': post.id}) }}">Voir Détail</a>
+        </li>
+    {% else %}
+        <p>Aucun post associé.</p>
+    {% endfor %}
+</ul>
+
+<a href="{{ path('app_profil') }}">Retour à mon profil</a>
+</div>
+{% endblock %}

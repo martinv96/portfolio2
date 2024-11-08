@@ -22,9 +22,9 @@
         <li class="li">Pseudo : {{ user.pseudo }}</li>
         
         {% if user.avatar %}
-        <img src="{{ asset('avatar/' ~ user.avatar) }}" alt="Avatar">
+        <img src="{{ asset('avatar/' ~ user.avatar) }}" alt="Avatar" class="avatar">
     {% else %}
-        <img src="{{ asset('images/default-avatar.jpg') }}" alt="Avatar par défaut">
+        <img src="{{ asset('avatar/default/default-avatar.png') }}" alt="Avatar par défaut" class="avatar">
     {% endif %}
 
     {% if user.description %}
@@ -51,5 +51,37 @@
     <a href="{{ path('app_modifier_informations') }}">Modifier mes informations</a>
     </div>
   
+    <h3 class="titrecollection">Mes collections</h3>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Visibilité</th>
+            <th>Catégorie</th>
+            <th>Détails</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for collection in collection %}
+            <tr>
+                <td>{{ collection.titre }}</td>
+                <td>{{ collection.description }}</td>
+                <td>
+                    {% if collection.isPublic %}
+                        Public
+                    {% else %}
+                        Privé
+                    {% endif %}
+                </td>
+                <td>{{ collection.categorie }}</td>
+                <td><a href="{{ path('app_detail_collection', {id: collection.id}) }}">Détails</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
 
 {% endblock %}

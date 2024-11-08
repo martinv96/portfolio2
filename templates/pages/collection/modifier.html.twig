@@ -1,0 +1,74 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('styles/collection.css') }}">
+
+    <h1>Modifier votre collection</h1>
+
+    {{ form_start(collectionForm) }}
+
+    <div class="formcollection">
+        <div class="label">
+            {{ form_label(collectionForm.titre, 'Titre') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(collectionForm.titre) }}
+        </div>
+
+        <div class="label">
+            {{ form_label(collectionForm.description, 'Description') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(collectionForm.description) }}
+        </div>
+
+        <div class="label">
+            {{ form_label(collectionForm.date, 'Date') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(collectionForm.date) }}
+        </div>
+
+        <div class="label">
+            {{ form_label(collectionForm.isPublic, 'Visibilité') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(collectionForm.isPublic) }}
+        </div>
+        <div class="label">
+            {{ form_label(collectionForm.cover, 'Fichier') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(collectionForm.cover) }}
+        </div>
+        <div class="label">
+            {{ form_label(collectionForm.tags, 'Tags') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(collectionForm.tags) }}
+        </div>
+        <div class="label">
+            {{ form_label(collectionForm.categorie, 'Catégorie') }}
+        </div>
+        <div class="widget">
+            {{ form_widget(collectionForm.categorie) }}
+        </div>
+        <div>
+            {{ form_widget(collectionForm.envoyer, {'label': 'Enregistrer modification', 'attr': {'class': 'bouton'}}) }}
+
+        </div>
+    </div>
+        {{ form_widget(collectionForm) }}
+    {{ form_end(collectionForm) }}
+  
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+{% endblock %}

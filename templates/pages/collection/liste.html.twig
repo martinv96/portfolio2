@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Liste des Collections
+{% endblock %}
+
+{% block body %}
+	<link rel="stylesheet" href="{{ asset('styles/collection.css') }}">
+	<h1>Mes Collections</h1>
+
+	<ul class="ul">
+    {% for collection in collections %}
+        <li class="li">
+            <div class="card">
+                <h3>{{ collection.titre }}</h3>
+                <p>{{ collection.description }}</p>
+
+                <div class="card-actions">
+                    <a href="{{ path('app_modifier_collection', { id: collection.id }) }}" class="modifier">Modifier</a>
+                    <a href="{{ path('app_supprimer_collection', { id: collection.id }) }}" class="supprimer">Supprimer</a>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+	<div class="btnajout">
+		<p class="text2">Ajouter une collection</p>
+		<a href="{{ path('app_ajouter_collection')}}" class="ajouter">Ajouter</a>
+	</div>
+{% endblock %}

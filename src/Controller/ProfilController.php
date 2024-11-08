@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Utilisateur;
+use App\Form\CollectionForm;
 use App\Form\ProfileForm;
+use App\Repository\CollectionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -16,19 +18,25 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class ProfilController extends AbstractController
 {
     private $entityManager;
+    private $collectionRepository; 
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, CollectionRepository $collectionRepository)
     {
         $this->entityManager = $entityManager;
+        $this->collectionRepository = $collectionRepository;
     }
 
     #[Route('/profil', name: 'app_profil')]
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
     public function index(): Response
     {
+
+        $collections = $this->collectionRepository->findAll();
+
         return $this->render('pages/profil/index.html.twig', [
             'user' => $this->getUser(),
             'profileForm' => $this->createForm(ProfileForm::class)->createView(),
+            'collection' => $collections,
         ]);
     }
 
